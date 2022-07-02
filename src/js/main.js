@@ -82,13 +82,13 @@ function insertMovie(movie) {
     index = index + 1;
 }
 
-movies.forEach(movie => insertMovie(movie));
-
-
+// movies.forEach(movie => insertMovie(movie));
 
 async function getMovies() {
-  const url = '';
-  const fetchResponse = await fetch(url)
-  fetchResponse.json();
+  const url = 'https://api.themoviedb.org/3/movie/popular?api_key=a916e932c58b15f0923590ba07fa246e';
+  const fetchResponse = await fetch(url);
+  const { responseJson } = await fetchResponse.json();
+  return responseJson;
 }
 
+console.log(getMovies())
